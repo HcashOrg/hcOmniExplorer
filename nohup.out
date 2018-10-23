@@ -1,0 +1,18 @@
+
+> omniexplorer@3.5.0 start /home/xu/gopath/src/github.com/OmniLayer/omniexplorer1
+> cross-env NODE_ENV=development node server
+
+[HPM] Proxy created: /  ->  https://api.omniexplorer.info/
+[HPM] Proxy rewrite rule created: "^/api/v1/" ~> "/v1/"
+[HPM] Subscribed to http-proxy events:  [ 'error', 'close' ]
+Server started ! ✓
+
+Access URLs:
+-----------------------------------
+Localhost: http://localhost:3000
+      LAN: http://172.31.81.52:3000
+-----------------------------------
+Press CTRL-C to stop
+    
+webpack built c0d0bca136d224884ca3 in 12966ms
+
