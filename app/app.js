@@ -62,6 +62,7 @@ import './global-styles';
 
 // Import SASS responsive styles
 import './responsive-styles.scss';
+import './hope_assets/fonts/fonts.css';
 import './hope_assets/css/reset.scss';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in

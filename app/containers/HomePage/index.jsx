@@ -34,12 +34,12 @@ class HomePage extends React.PureComponent { // eslint-disable-line react/prefer
     return (
       <div>
         <Layout className="container-fluid">
-          <Row noGutters>
+          {/*<Row noGutters>
             <Col sm className="mt-3">
               <HeaderMessage />
             </Col>
-          </Row>
-          <div className="quick-info mb-5">
+          </Row>*/}
+          <div className="quick-info mb-5 mt-3">
             <Row>
               <Col sm="12" lg="5" className="text-center-down-md">
                 <ServiceBlock />

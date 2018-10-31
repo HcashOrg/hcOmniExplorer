@@ -1,34 +1,6 @@
-@font-face {
-	font-family: 'BwModelicaLight';
-	src: url('../fonts/BwModelicaLight/BwModelicaLight.eot');
-	src: url('../fonts/BwModelicaLight/BwModelicaLight.eot') format('embedded-opentype'),
-	url('../fonts/BwModelicaLight/BwModelicaLight.woff2') format('woff2'),
-	url('../fonts/BwModelicaLight/BwModelicaLight.woff') format('woff'),
-	url('../fonts/BwModelicaLight/BwModelicaLight.ttf') format('truetype'),
-	url('../fonts/BwModelicaLight/BwModelicaLight.svg#BwModelicaLight') format('svg');
-}
-@font-face {
-	font-family: 'BwModelicaMedium';
-	src: url('../fonts/BwModelicaMedium/BwModelicaMedium.eot');
-	src: url('../fonts/BwModelicaMedium/BwModelicaMedium.eot') format('embedded-opentype'),
-	url('../fonts/BwModelicaMedium/BwModelicaMedium.woff2') format('woff2'),
-	url('../fonts/BwModelicaMedium/BwModelicaMedium.woff') format('woff'),
-	url('../fonts/BwModelicaMedium/BwModelicaMedium.ttf') format('truetype'),
-	url('../fonts/BwModelicaMedium/BwModelicaMedium.svg#BwModelicaMedium') format('svg');
-}
-@font-face {
-	font-family: 'BwModelicaRegular';
-	src: url('../fonts/BwModelicaRegular/BwModelicaRegular.eot');
-	src: url('../fonts/BwModelicaRegular/BwModelicaRegular.eot') format('embedded-opentype'),
-	url('../fonts/BwModelicaRegular/BwModelicaRegular.woff2') format('woff2'),
-	url('../fonts/BwModelicaRegular/BwModelicaRegular.woff') format('woff'),
-	url('../fonts/BwModelicaRegular/BwModelicaRegular.ttf') format('truetype'),
-	url('../fonts/BwModelicaRegular/BwModelicaRegular.svg#BwModelicaRegular') format('svg');
-}
-
-$font-bmr: 'BwModelicaRegular', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-$font-bml: 'BwModelicaLight', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-$font-bmm: 'BwModelicaMedium', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+$font-jr: 'JuraRegular', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+$font-jl: 'JuraLight', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+$font-jm: 'JuraMedium', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 
 
 @function pxToRem($px, $base: 12) {
@@ -43,14 +15,14 @@ $font-bmm: 'BwModelicaMedium', 'Open Sans','Helvetica Neue',Helvetica,Arial,sans
 
 a {
 	color: #5C4D93;
-	font-family: $font-bmm;
+	font-family: $font-jm;
 	&:hover {
-		color: #339999;
+		color: #8839D1;
 	}
 }
 
 body.fontLoaded {
-	font-family: $font-bmr;
+	font-family: $font-jr;
 }
 
 #app {
@@ -70,17 +42,17 @@ body.fontLoaded {
 .navbar-light {
 	.navbar-nav {
 		.nav-link {
-			color: #000;
+			color: #fff;
 			&:hover,
 			&.show,
 			&.active {
-				color: #4C315A;
+				color: #fff;
 			}
 		}
 		.active,
 		.show {
 			> .nav-link {
-				color: #4C315A;
+				color: #fff;
 			}
 		}
 	}
@@ -89,22 +61,27 @@ body.fontLoaded {
 
 // 下拉菜单
 .dropdown-menu {
-	color: #4C315A;
-	border: 1px solid rgba(#4C315A, 0.15);
+	color: #fff;
+	border: 1px solid rgba(#8839D1, 0.15);
+	background-color: #8839D1;
 }
 .dropdown-item {
+	color: #fff;
     &:hover,
 	&:focus {
 	    color: #fff;
-	    background-color: rgba(#4C315A, 0.15);
+	    background-color: rgba(#000, 0.15);
     }
+}
+.dropdown-header {
+	color: #fff;
 }
 
 
 // homepage quick-info
 .quick-info {
-	background: linear-gradient(120deg, #674A96, #37243F);
-	background: -webkit-linear-gradient(120deg, #674A96, #37243F);
+	background: linear-gradient(120deg, #8839D1, #6f2faf);
+	background: -webkit-linear-gradient(120deg, #8839D1, #6f2faf);
 	.jQMddN {
 		background: none;
 	}
@@ -121,7 +98,8 @@ body.fontLoaded {
 
 // 头部
 .navbar {
-	background-color: #fff;
+	background-color: #8839D1;
+	color: #fff;
 }
 .navbar-brand {
 	.long {
@@ -164,15 +142,15 @@ body.fontLoaded {
 		&:focus,
 		&:active {
 			color: #fff !important;
-			background-color: #339999;
-			border-color: #339999;
+			background-color: #8839D1;
+			border-color: #8839D1;
 		}
 	}
 	&.active {
 		.page-link {
 			color: #fff !important;
-			background-color: #339999;
-			border-color: #339999;
+			background-color: #8839D1;
+			border-color: #8839D1;
 		}
 	}
 }
@@ -193,7 +171,7 @@ body.fontLoaded {
 			&:active {
 				border: none;
 				box-shadow: none;
-				background-color: #339999;
+				background-color: #8839D1;
 				color: #fff;
 			}
 		}
@@ -203,16 +181,9 @@ body.fontLoaded {
 			&.dropdown-toggle {
 				border: none;
 				box-shadow: none;
-				background-color: #339999;
+				background-color: #8839D1;
 				color: #fff;
 			}
-		}
-	}
-	.dropdown-item {
-		&:hover,
-		&:focus {
-			background-color: #339999;
-			color: #fff;
 		}
 	}
 }
@@ -220,7 +191,7 @@ body.fontLoaded {
 
 
 .result-list {
-	font-family: $font-bmm;
+	font-family: $font-jm;
 	.transation-result {
 		border-radius: 10px;
 		overflow: hidden;
@@ -248,7 +219,7 @@ body.fontLoaded {
 				&:hover,
 				&:active,
 				&:focus {
-					background-color: #339999 !important;
+					background-color: #8839D1 !important;
 					color: #fff !important;
 					a {
 						color: #fff !important;
@@ -263,7 +234,7 @@ body.fontLoaded {
 			}
 		}
 		.transaction-arrow-icon {
-			color: #339999 !important;
+			color: #8839D1 !important;
 		}
 
 		.result-price {
@@ -324,7 +295,7 @@ body.fontLoaded {
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: #339999;
+		background-color: #8839D1;
 		svg {
 			fill: #fff;
 			box-shadow: none;
@@ -351,7 +322,7 @@ body.fontLoaded {
 
 .new-title {
 	max-width: 100%;
-	background-image: linear-gradient(-40deg, #674A96, #372448);
+	background-image: linear-gradient(-40deg, #8839D1, #6f2faf);
 	color: #fff;
 	overflow: hidden;
 	padding: 4rem 2rem !important;
@@ -393,7 +364,7 @@ body.fontLoaded {
 		}
 		small {
 			display: block;
-			font-family: $font-bmm;
+			font-family: $font-jm;
 			color: #3C3189;
 			word-break:break-all;
 			font-weight: 400;
@@ -412,14 +383,14 @@ body.fontLoaded {
 	.info {
 		h3 {
 			font-size: pxToRem(30);
-			font-family: $font-bmr;
+			font-family: $font-jr;
 			color: #001B33;
 		}
 		small {
 			display: block;
 			line-height: 1em;
 			font-size: pxToRem(12);
-			font-family: $font-bmm;
+			font-family: $font-jm;
 			color: #3C3189;
 			word-break:break-all;
 			font-weight: 400;
@@ -455,10 +426,30 @@ body.fontLoaded {
 		}
 	}
 }
+.btn-danger {
+	background-color: #E21B4B;
+	border-color: #E21B4B;
+	&:hover {
+		background-color: lighten(#E21B4B, 6);
+		border-color: lighten(#E21B4B, 6);
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active:focus {
+			box-shadow: 0 0 0 0.2rem rgba(#E21B4B, 0.5);
+		}
+		&:active {
+			background-color: lighten(#E21B4B, 6);
+			border: none;
+		}
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
 
 
 
 .historyChartBg {
-	background: linear-gradient(120deg, #674A96, #37243F);
-	background: -webkit-linear-gradient(120deg, #674A96, #37243F);
+	background: linear-gradient(120deg, #8839D1, #6f2faf);
+	background: -webkit-linear-gradient(120deg, #8839D1, #6f2faf);
 }
