@@ -102,7 +102,7 @@ class ServiceBlock extends React.PureComponent { // eslint-disable-line react/pr
 
     const omniPriceValue = (props) => (
       <span>
-        { Math.round((props.omni_btc + 0.0000001) * 1000000) / 1000000 } BTC /
+        { Math.round((props.omni_btc + 0.0000001) * 1000000) / 1000000 } HC /
         ${ (Math.round((props.omni_usd + 0.00001) * 100) / 100).toFixed(2) }
       </span>
     );
