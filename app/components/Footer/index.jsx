@@ -30,7 +30,7 @@ function Footer() {
         <FormattedMessage
           {...messages.authorMessage}
           values={{
-            author: <A href="http://www.omnilayer.org/">The Omni Foundation</A>,
+            author: <A href="https://h.cash//">The HCash Foundation</A>,
           }}
         />
       </section>
