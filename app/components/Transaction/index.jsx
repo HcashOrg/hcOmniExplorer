@@ -39,7 +39,7 @@ const AddressWrapper = styled.div.attrs({
 const StyledLink = styled(Link).attrs({
   className: 'mr-1 text-truncate',
 })`
-  color: #333;
+  color: #674A96;
 `;
 
 const StyledCopyIcon = styled(CopyIcon).attrs({
@@ -51,10 +51,10 @@ const WrapperLink = styled.div.attrs({
 })`
   user-select: text !important;
   font-size: 1.25rem !important;
-  width: 44%;
+  width: 42%;
   color: #333;
-  background: #EFF5FB;
-  border-color: #e2e7eb;
+  border-radius: 1000px !important;
+  border-color: #e2e7eb !important;
 `;
 
 class Transaction extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -147,78 +147,86 @@ class Transaction extends React.PureComponent { // eslint-disable-line react/pre
               <IMG src={tokenLogo} />
             </Col>
             <Col sm>
-              <span className="title d-block-down-md">
+              <div className="title d-block-down-md">
                 {this.props.type}
-              </span>
-              <div className="location d-block-down-md">
-                <Link
-                  className="text-truncate"
-                  to={{
-                    pathname: `/tx/${this.props.txid}`,
-                    state: { transaction: this.props },
-                  }}
-                  onClick={() => this.props.changeRoute(`/tx/${this.props.txid}`)}
-                >
-                  {this.props.txid}
-                </Link>
-                <CopyToClipboard text={this.props.txid} onCopy={this.toggleTxTooltip}>
-                  <StyledCopyIcon className="d-inline-flex d-md-none" size={24} id={txcopyid}/>
-                </CopyToClipboard>
-                <Tooltip hideArrow isOpen={this.state.tooltipTxOpen} target={txcopyid}>
-                  Transaction Id Copied
-                </Tooltip>
-                <div className="d-block-down-md">
-                  <FormattedUnixDateTime datetime={this.props.blocktime}/>
-                </div>
               </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm>
-              <div className="desc">
-                <AddressWrapper>
-                  <WrapperLink>
-                    <StyledLink
-                      className={` ${this.getHighlightIfOwner(this.props.sendingaddress)}`}
-                      to={{
-                        pathname: `/address/${this.props.sendingaddress}`,
-                        state: { transaction: this.props },
-                      }}
-                      onClick={() => this.props.changeRoute(`/address/${this.props.sendingaddress}`)}
-                    >
-                      {this.props.sendingaddress}
-                    </StyledLink>
-                  </WrapperLink>
-                  <CopyToClipboard text={this.props.sendingaddress} onCopy={this.toggleSenderTooltip}>
-                    <StyledCopyIcon className="d-inline-flex" size={24} id={sendercopyid}/>
-                  </CopyToClipboard>
-                  <Tooltip hideArrow isOpen={this.state.tooltipSenderOpen} target={sendercopyid}>
-                    Sender Address Copied
-                  </Tooltip>
-                </AddressWrapper>
-                <ArrowIconRight size={20} color="gray" className={`d-none ${arrowcnameright} ${arrowcname}`}/>
-                <ArrowIconDown size={20} color="gray" className={`d-md-none ${arrowcname}`}/>
-                <AddressWrapper className={showreferencecname}>
-                  <WrapperLink>
-                    <StyledLink
-                      className={addresscname}
-                      to={{
-                        pathname: `/address/${this.props.referenceaddress}`,
-                        state: { transaction: this.props },
-                      }}
-                      onClick={() => this.props.changeRoute(`/address/${this.props.referenceaddress}`)}
-                    >
-                      {this.props.referenceaddress}
-                    </StyledLink>
-                  </WrapperLink>
-                  <CopyToClipboard text={this.props.referenceaddress} onCopy={this.toggleRefererTooltip}>
-                    <StyledCopyIcon className="d-inline-flex" size={24} id={referercopyid}/>
-                  </CopyToClipboard>
-                  <Tooltip hideArrow isOpen={this.state.tooltipRefererOpen} target={referercopyid}>
-                    Reference Address Copied
-                  </Tooltip>
-                </AddressWrapper>
-              </div>
+              <Row className="location d-block-down-md mb-3">
+                  <Col lg="8">
+                      <Link
+                          className="text-truncate"
+                          to={{
+                              pathname: `/tx/${this.props.txid}`,
+                              state: { transaction: this.props },
+                          }}
+                          onClick={() => this.props.changeRoute(`/tx/${this.props.txid}`)}
+                      >
+                          {this.props.txid}
+                      </Link>
+                      <CopyToClipboard text={this.props.txid} onCopy={this.toggleTxTooltip}>
+                          <StyledCopyIcon className="d-inline-flex d-md-none" size={24} id={txcopyid}/>
+                      </CopyToClipboard>
+                      <Tooltip hideArrow isOpen={this.state.tooltipTxOpen} target={txcopyid}>
+                          Transaction Id Copied
+                      </Tooltip>
+                  </Col>
+                  <Col lg="4">
+                      <div className="d-block-down-md">
+                          <FormattedUnixDateTime datetime={this.props.blocktime}/>
+                      </div>
+                  </Col>
+              </Row>
+                <Row>
+                    <Col sm>
+                        <div className="desc">
+                            <AddressWrapper>
+                                <WrapperLink>
+                                    <StyledLink
+                                        className={` ${this.getHighlightIfOwner(this.props.sendingaddress)}`}
+                                        to={{
+                                            pathname: `/address/${this.props.sendingaddress}`,
+                                            state: { transaction: this.props },
+                                        }}
+                                        onClick={() => this.props.changeRoute(`/address/${this.props.sendingaddress}`)}
+                                    >
+                                        {this.props.sendingaddress}
+                                    </StyledLink>
+                                </WrapperLink>
+                                <CopyToClipboard text={this.props.sendingaddress} onCopy={this.toggleSenderTooltip}>
+                                    <div className="svgParent ml-2">
+                                        <StyledCopyIcon className="d-inline-flex" size={24} id={sendercopyid}/>
+                                    </div>
+                                </CopyToClipboard>
+                                <Tooltip hideArrow isOpen={this.state.tooltipSenderOpen} target={sendercopyid}>
+                                    Sender Address Copied
+                                </Tooltip>
+                            </AddressWrapper>
+                            <ArrowIconRight size={20} color="gray" className={`d-none ${arrowcnameright} ${arrowcname}`}/>
+                            <ArrowIconDown size={20} color="gray" className={`d-md-none ${arrowcname}`}/>
+                            <AddressWrapper className={showreferencecname}>
+                                <WrapperLink>
+                                    <StyledLink
+                                        className={addresscname}
+                                        to={{
+                                            pathname: `/address/${this.props.referenceaddress}`,
+                                            state: { transaction: this.props },
+                                        }}
+                                        onClick={() => this.props.changeRoute(`/address/${this.props.referenceaddress}`)}
+                                    >
+                                        {this.props.referenceaddress}
+                                    </StyledLink>
+                                </WrapperLink>
+                                <CopyToClipboard text={this.props.referenceaddress} onCopy={this.toggleRefererTooltip}>
+                                  <div className="svgParent ml-2">
+                                      <StyledCopyIcon className="d-inline-flex" size={24} id={referercopyid}/>
+                                  </div>
+                                </CopyToClipboard>
+                                <Tooltip hideArrow isOpen={this.state.tooltipRefererOpen} target={referercopyid}>
+                                    Reference Address Copied
+                                </Tooltip>
+                            </AddressWrapper>
+                        </div>
+                    </Col>
+                </Row>
             </Col>
           </Row>
         </Col>

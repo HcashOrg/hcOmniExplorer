@@ -21,32 +21,32 @@ import { API_URL_BASE } from 'containers/App/constants';
 import getLogo from 'utils/getLogo';
 
 const StyledContainer = styled(Container)`
-      background-color: white;
+      // background-color: white;
     `;
 const StyledCard = styled(Card)`
-      background-color: #2A72B5;
-      border-color: #2A72B5;
+      // background-color: #2A72B5;
+      // border-color: #2A72B5;
     `;
 const StyledCardBody = styled(CardBody)`
-      background-color: #348FE2;
-      border-color: #348FE2;
+      // background-color: #348FE2;
+      // border-color: #348FE2;
     `;
 const DetailRow = styled(Row)`
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      // margin-top: 2rem;
+      // margin-bottom: 2rem;
     `;
 const SubtitleDetail = styled.small`
-      display: block;
-      font-size: 10px;
-      font-weight: 400;
-      margin-top: 5px;
+      // display: block;
+      // font-size: 10px;
+      // font-weight: 400;
+      // margin-top: 5px;
     `;
 const A = styled.a`
-      color: #41addd;
-
-      &:hover {
-        color: #6cc0e5;
-      }
+      // color: #41addd;
+      //
+      // &:hover {
+      //   color: #6cc0e5;
+      // }
     ;`;
 
 function TransactionInfo(props) {
@@ -54,10 +54,10 @@ function TransactionInfo(props) {
   let collapseDecoded = false;
   const toggleRawData = () => (collapseOmniData = !collapseOmniData);
   const toggleDecoded = () => (collapseDecoded = !collapseDecoded);
-  
+
   const isValid = props.valid;
   const statusColor = (isValid ? 'btn btn-group btn-primary btn-block btn-blue font-weight-light' : (props.confirmations === 0 ? 'btn btn-group btn-primary btn-block btn-warning font-weight-light' : 'btn btn-group btn-primary btn-block btn-danger font-weight-light'));
-  
+
   const getStatus = (tx) => {
     if (tx.valid) {
       return (tx.confirmations < CONFIRMATIONS ?
@@ -75,7 +75,7 @@ function TransactionInfo(props) {
   const invalidReason = (props.confirmations === 0 ? '' : `Reason: ${props.invalidreason || ''}`);
   const rawTransactionURL = `${API_URL_BASE}/transaction/tx/${props.txid}`;
   const logo = getLogo(props.propertyid, props);
-  
+
   let warningMessage = null;
   let dtheader;
   if (props.confirmations === 0) {
@@ -100,7 +100,7 @@ function TransactionInfo(props) {
   } else {
     dtheader = 'Date/Time';
   }
-  
+
   const amountDisplay = (<TransactionAmount {...props} />);
   let tokenName;
   if (![4, -22, 25, 26].includes(props.type_int)) {
@@ -124,42 +124,46 @@ function TransactionInfo(props) {
       <td><strong>{props.ecosystem}</strong></td>
     </tr>);
   }
-  
+
   let btcDesired;
   let specificAction;
   if (props.type_int === 20) {
     btcDesired = (<tr className="highlight">
-      <td className="field">HC Desired</td>
+      <td className="field">Bitcoin Desired</td>
       <td>
         <strong>
           <span id="lamount">
-            <SanitizedFormattedNumber value={props.bitcoindesired}/> HC
+            <SanitizedFormattedNumber value={props.bitcoindesired}/> BTC
           </span>
         </strong>
       </td>
     </tr>);
     specificAction = (`- ${props.action}`);
   }
-  
-  
+
+
   return (
-    <StyledContainer fluid>
-      {warningMessage}
-      <DetailRow>
-        <Col sm="2" className="col-auto mx-auto">
-          <img
-            src={logo}
-            alt={props.type}
-            className="img-thumbnail"
-          />
-        </Col>
-        <Col sm>
+    <div className="new-container">
+      <StyledContainer fluid className="new-title">
+        <h3>Transaction Details </h3>
+      </StyledContainer>
+      <StyledContainer fluid className="pt-5 pb-5">
+        {warningMessage}
+        <div className="new-bg p-4">
           <Table responsive className="table-profile">
             <thead>
             <tr>
-              <th></th>
+              <th><img
+                src={logo}
+                alt={props.type}
+                className="img-thumbnail"
+                width="60px"
+                height="60px"
+              />
+              </th>
               <th>
-                <h4>{props.type} {specificAction}
+                <h4>
+                  <strong>{props.type} {specificAction}</strong>
                   <SubtitleDetail>
                     {props.txid}
                   </SubtitleDetail>
@@ -223,8 +227,8 @@ function TransactionInfo(props) {
               </td>
             </tr>
             <tr>
-              <td className="field">HC Fees</td>
-              <td><span id="lfees">{props.fee} HC</span></td>
+              <td className="field">Bitcoin Fees</td>
+              <td><span id="lfees">{props.fee} BTC</span></td>
             </tr>
             <tr>
               <td className="field">Omni Fees</td>
@@ -280,11 +284,9 @@ function TransactionInfo(props) {
             </tr>
             </tbody>
           </Table>
-        </Col>
-      </DetailRow>
-      <Row>
-      </Row>
-    </StyledContainer>
+        </div>
+      </StyledContainer>
+    </div>
   );
 }
 

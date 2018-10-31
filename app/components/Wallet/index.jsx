@@ -32,8 +32,8 @@ const StyledInformationIcon = styled(InformationIcon)`
 `;
 
 const DetailRow = styled(Row)`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 `;
 
 const StyledTD = styled.td.attrs({
@@ -83,112 +83,96 @@ class Wallet extends React.PureComponent {
     const hasFlagged = !!flaggedProps.length;
 
     return (
-      <Container fluid>
-        <DetailRow>
-          <Col className="col-auto mx-auto" sm="3">
-            <QRCode value={this.props.addr} />
-          </Col>
-          <Col sm>
-            <Table responsive className="table-profile">
-              <thead>
-                <tr>
-                  <StyledTH />
-                  <StyledTH>
-                    <h4>
-                      <span className="d-block" id="laddress">
-                        {this.props.addr}
-                      </span>
-                    </h4>
-                    {this.props.extra}
-                  </StyledTH>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="highlight">
-                  <StyledTD className="field font-weight-bold">
-                    <Table className="table" style={{ marginBottom: '5px' }}>
-                      <thead>
-                        <tr>
-                          <StyledTH>
-                            Balances
-                            <br />
-                          </StyledTH>
-                        </tr>
-                      </thead>
-                    </Table>
-                  </StyledTD>
-                  <StyledTD>
-                    <Table className="table" style={{ marginBottom: '5px' }} hover>
-                      <thead>
-                        <tr>
-                          <StyledTH />
-                          <StyledTH>ID</StyledTH>
-                          <StyledTH>Name</StyledTH>
-                          <StyledTH className="text-right">
-                            Reserved Balance
-                          </StyledTH>
-                          <StyledTH className="text-right">
-                            Available Balance
-                          </StyledTH>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {nonFlaggedProps.map(balance => (
-                          <Token {...balance} key={balance.id} />
-                        ))}
-                      </tbody>
-                    </Table>
-                    <div className="text-center">
-                      {hasFlagged && (
-                        <div>
-                          <Button
-                            color="link"
-                            className="text-info small"
-                            id="togglerFlagged"
-                            style={{ marginBottom: '1rem', textDecoration: "none" }}
-                            onClick={this.toggle}
-                          >
-                            {this.state.flaggedMessage}
-                            <StyledInformationIcon
-                              color="gray"
-                              className="ml-1"
-                              id="flaggedToolip"
-                            />
-                          </Button>
-                          <UncontrolledTooltip
-                            placement="right-end"
-                            target="flaggedToolip"
-                          >
-                            <FormattedMessage
-                              {...walletMessages.flagged}
-                            />
-                          </UncontrolledTooltip>
-                        </div>
-                      )}
-                    </div>
-                    {hasFlagged && (
-                      <Collapse
-                        toggler="#togglerFlagged"
-                        isOpen={this.state.collapse}
-                      >
-                        <Table
-                          className="table bg-light"
-                          style={{ marginBottom: '5px' }}
-                        >
-                          <tbody>
-                            {flaggedProps.map(balance => (
-                              <Token {...balance} key={balance.id} />
-                            ))}
-                          </tbody>
-                        </Table>
-                      </Collapse>
-                    )}
-                  </StyledTD>
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-        </DetailRow>
+      <Container fluid className="pt-5 pb-5">
+        <div className="new-bg p-4">
+          <Table responsive className="table-profile">
+            <thead>
+            <tr>
+              <th>
+                <QRCode
+                  value={this.props.addr}
+                  size="60"
+                />
+              </th>
+              <th>
+                <h4>
+                  <p>
+                    {this.props.addr}
+                    <small className="d-block" id="laddress">
+                      {this.props.extra}
+                    </small>
+                  </p>
+                </h4>
+              </th>
+            </tr>
+            </thead>
+          </Table>
+          <Table responsive className="table-profile">
+            <thead>
+            <tr>
+              <StyledTH />
+              <StyledTH>ID</StyledTH>
+              <StyledTH>Name</StyledTH>
+              <StyledTH className="text-right">
+                Reserved Balance
+              </StyledTH>
+              <StyledTH className="text-right">
+                Available Balance
+              </StyledTH>
+            </tr>
+            </thead>
+            <tbody>
+            {nonFlaggedProps.map(balance => (
+              <Token {...balance} key={balance.id} />
+            ))}
+            </tbody>
+          </Table>
+          <div className="text-center">
+            {hasFlagged && (
+              <div>
+                <Button
+                  color="link"
+                  className="text-info small"
+                  id="togglerFlagged"
+                  style={{ marginBottom: '1rem', textDecoration: "none" }}
+                  onClick={this.toggle}
+                >
+                  {this.state.flaggedMessage}
+                  <StyledInformationIcon
+                    color="gray"
+                    className="ml-1"
+                    id="flaggedToolip"
+                  />
+                </Button>
+                <UncontrolledTooltip
+                  placement="right-end"
+                  target="flaggedToolip"
+                >
+                  <FormattedMessage
+                    {...walletMessages.flagged}
+                  />
+                </UncontrolledTooltip>
+              </div>
+            )}
+          </div>
+          {hasFlagged && (
+            <Collapse
+              toggler="#togglerFlagged"
+              isOpen={this.state.collapse}
+            >
+              <Table
+                className="table bg-light responsive"
+                style={{ marginBottom: '5px' }}
+              >
+                <tbody>
+                {flaggedProps.map(balance => (
+                  <Token {...balance} key={balance.id} />
+                ))}
+                </tbody>
+              </Table>
+            </Collapse>
+          )}
+        </div>
       </Container>
     );
   }

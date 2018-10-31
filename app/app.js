@@ -37,6 +37,10 @@ import '!file-loader?name=[name].[ext]!./images/icon-152x152.png';
 import '!file-loader?name=[name].[ext]!./images/icon-192x192.png';
 import '!file-loader?name=[name].[ext]!./images/icon-384x384.png';
 import '!file-loader?name=[name].[ext]!./images/icon-512x512.png';
+
+import '!file-loader?name=[name].[ext]!./hope_assets/images/logo.svg';
+import '!file-loader?name=[name].[ext]!./hope_assets/images/logo-long.svg';
+
 import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess';
 import 'file-loader?name=[name].[ext]!./extras/404.html';
@@ -58,6 +62,7 @@ import './global-styles';
 
 // Import SASS responsive styles
 import './responsive-styles.scss';
+import './hope_assets/css/reset.scss';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)

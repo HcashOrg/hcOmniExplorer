@@ -23,12 +23,10 @@ import getWarningMessage from 'utils/getWarningMessage';
 
 const StyledContainer = styled(Container)``;
 const DetailRow = styled(Row)`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 `;
 const SubtitleDetail = styled.small`
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   margin-top: 5px;
 `;
@@ -66,48 +64,54 @@ export class AssetDetail extends React.PureComponent {
     }
 
     return (
-      <StyledContainer fluid>
-        {warningMessage}
-        <DetailRow>
-          <Col sm>
-            <Table responsive className="table-profile">
-              <thead>
-                <tr>
-                  <th>
-                    <img
-                      src={logo}
-                      alt={asset.type}
-                      className="img-thumbnail"
-                      width="42px"
-                      height="42px"
-                    />
-                  </th>
-                  <th>
-                    <h4>
-                      <strong>{asset.name}</strong>
-                      <SubtitleDetail className={subtitleclass}>
-                        <span>created by &nbsp;</span>
-                        <Link
-                          to={{
-                            pathname: `/tx/${asset.creationtxid}`,
-                          }}
-                          onClick={() =>
-                            this.props.changeRoute(`/tx/${asset.creationtxid}`)
-                          }
-                        >
-                          {asset.creationtxid}
-                        </Link>
-                      </SubtitleDetail>
-                    </h4>
-                  </th>
-                </tr>
-              </thead>
-              <AssetInfo {...asset} />
-            </Table>
-          </Col>
-        </DetailRow>
-        <Row />
-      </StyledContainer>
+      <div className="new-container">
+        <StyledContainer fluid className="new-title">
+          <h3>Asset Detail</h3>
+        </StyledContainer>
+        <StyledContainer fluid className="pt-5 pb-5">
+          {warningMessage}
+          <div className="new-bg p-4">
+            <DetailRow>
+              <Col sm>
+                <Table responsive className="table-profile">
+                  <thead>
+                  <tr>
+                    <th>
+                      <img
+                        src={logo}
+                        alt={asset.type}
+                        className="img-thumbnail"
+                        width="60px"
+                        height="60px"
+                      />
+                    </th>
+                    <th>
+                      <h4>
+                        <strong>{asset.name}</strong>
+                        <SubtitleDetail className={subtitleclass}>
+                          <span>created by &nbsp;</span>
+                          <Link
+                            to={{
+                              pathname: `/tx/${asset.creationtxid}`,
+                            }}
+                            onClick={() =>
+                              this.props.changeRoute(`/tx/${asset.creationtxid}`)
+                            }
+                          >
+                            {asset.creationtxid}
+                          </Link>
+                        </SubtitleDetail>
+                      </h4>
+                    </th>
+                  </tr>
+                  </thead>
+                  <AssetInfo {...asset} />
+                </Table>
+              </Col>
+            </DetailRow>
+          </div>
+        </StyledContainer>
+      </div>
     );
   }
 }

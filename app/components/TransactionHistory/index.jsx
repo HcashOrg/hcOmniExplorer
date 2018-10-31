@@ -69,18 +69,30 @@ class TransactionHistory extends React.PureComponent {
     return (
       <FlexibleXYPlot
         animation
-        height={this.props.height || 230}
-        margin={{ left: 48 }}
+        height={this.props.height || 280}
+        margin={{ left: 40, top: 35, bottom:45,right:20 }}
         onMouseLeave={() => this.setState({ crosshairValues: null })}
         hideLine
       >
-        <VerticalGridLines />
-        <HorizontalGridLines />
+        <VerticalGridLines
+          left={40}
+          top={35}
+          style={{
+            line: {stroke: 'rgba(255,255,255,0.7)'}
+          }}
+        />
+        <HorizontalGridLines
+          left={40}
+          top={35}
+          style={{
+            line: {stroke: 'rgba(255,255,255,0.7)'}
+          }}
+        />
         <LineSeries
           data={this.data}
           style={{
-            stroke: 'violet',
-            strokeWidth: 3,
+            stroke: '#66CCCC',
+            strokeWidth: 2,
           }}
           onNearestX={(value, { index }) =>
             this.setState({ crosshairValues: [value] })
@@ -90,15 +102,31 @@ class TransactionHistory extends React.PureComponent {
           attr="x"
           attrAxis="y"
           title="By Days"
+          orientation='bottom'
+          tickSize={0}
           tickFormat={tickFormat}
           tickLabelAngle={0}
           tickValues={this.data.slice(1, -1).map(record => record.x)}
+          style={{
+            line: {stroke: '#fff'},
+            ticks: {stroke: '#fff'},
+            text: {stroke: 'none', fill: '#fff', fontWeight: 500},
+            title: {fill:'#fff',fontSize: 10}
+          }}
         />
         <YAxis
           attr="y"
           attrAxis="x"
           orientation="left"
+          position="end"
+          tickSize={0}
           title="Number of transactions"
+          style={{
+            line: {stroke: '#fff'},
+            ticks: {stroke: '#fff'},
+            text: {stroke: 'none', fill: '#fff', fontWeight: 500},
+            title: {fill:'#fff',fontSize: 10}
+          }}
         />
         {crosshairValues && (
           <Crosshair

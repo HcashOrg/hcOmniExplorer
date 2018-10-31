@@ -7,9 +7,9 @@ import messages from './messages';
 const Wrapper = styled.footer`
   display: flex;
   justify-content: space-between;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   margin-top: 1rem;
-  border-top: 1px solid #666;
+  background-color: #fff;
 `;
 
 const A = styled.a`
@@ -30,7 +30,7 @@ function Footer() {
         <FormattedMessage
           {...messages.authorMessage}
           values={{
-            author: <A href="https://h.cash">The Hcash Foundation</A>,
+            author: <A href="http://www.omnilayer.org/">The Omni Foundation</A>,
           }}
         />
       </section>

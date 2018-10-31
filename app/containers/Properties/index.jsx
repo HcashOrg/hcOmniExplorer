@@ -29,8 +29,8 @@ import { ECOSYSTEM_PROD, ECOSYSTEM_TEST, ECOSYSTEM_TEST_NAME, ECOSYSTEM_PROD_NAM
 
 const StyledContainer = styled(Container)`
       
-      margin: 3rem;
-      padding: 1rem;
+      // margin: 3rem;
+      // padding: 3rem;
     `;
 const StyledTH = styled.th`
       border: none !important;
@@ -77,22 +77,20 @@ export class Properties extends React.PureComponent { // eslint-disable-line rea
     );
 
     return (
-      <StyledContainer fluid>
-        <Row>
-          <Col sm>
-            <h3>
-              Properties for ecosystem { this.ecosystem }
-              &nbsp;
-              <small className="text-muted">({this.props.search.asset.length} properties)</small>
-            </h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
+      <div className="new-container">
+        <StyledContainer fluid className="new-title">
+          <h3>
+            Properties for ecosystem { this.ecosystem }
+            &nbsp;
+            <small className="text-muted">({this.props.search.asset.length} properties)</small>
+          </h3>
+        </StyledContainer>
+        <StyledContainer fluid className="pt-5 pb-5">
+          <div className="new-bg p-4">
             {assets}
-          </Col>
-        </Row>
-      </StyledContainer>
+          </div>
+        </StyledContainer>
+      </div>
     );
   }
 }

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'BwModelicaLight';
+    src: url('fonts/BwModelicaLight.eot');
+    src: url('fonts/BwModelicaLight.eot') format('embedded-opentype'),
+         url('fonts/BwModelicaLight.woff2') format('woff2'),
+         url('fonts/BwModelicaLight.woff') format('woff'),
+         url('fonts/BwModelicaLight.ttf') format('truetype'),
+         url('fonts/BwModelicaLight.svg#BwModelicaLight') format('svg');
+}

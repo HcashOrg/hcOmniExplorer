@@ -18,9 +18,17 @@ import styled from 'styled-components';
 const StyledPaginationLink = styled(PaginationLink)`
   border-radius: 3.2px;
   margin-left: 1px;
+  border-radius: 50% !important;
+  color: #000 !important;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
 `;
 const StyledPaginationButton = styled(PaginationItem)`
-  margin: 0 2px;
+  margin: 0 4px;
   
   &.disabled {
     cursor: not-allowed;
@@ -29,7 +37,7 @@ const StyledPaginationButton = styled(PaginationItem)`
 
 const StyledPaginationItem = styled(StyledPaginationButton)`
   &.active > .page-link {
-      background-color: #3498db;
+      background-color: #339999;
     }
 `;
 

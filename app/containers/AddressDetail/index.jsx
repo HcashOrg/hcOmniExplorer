@@ -26,8 +26,6 @@ import { loadAddress } from './actions';
 import sagaAddress from './saga';
 
 const Layout = styled(Container)`
-      background-color: white;
-      padding: 0;
     `;
 
 export class AddressDetail extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -48,18 +46,13 @@ export class AddressDetail extends React.PureComponent { // eslint-disable-line 
     }
 
     return (
-      <Layout fluid>
-        <Row>
-          <Col sm>
-            <Wallet {...this.props.addressdetail} addr={this.address} />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            <Transactions addr={this.address} />
-          </Col>
-        </Row>
-      </Layout>
+      <div className="new-container">
+        <Layout fluid className="new-title">
+          <h3>Transaction Address</h3>
+        </Layout>
+        <Wallet {...this.props.addressdetail} addr={this.address} />
+        <Transactions addr={this.address} />
+      </div>
     );
   }
 }

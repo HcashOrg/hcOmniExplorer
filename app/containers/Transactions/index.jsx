@@ -45,7 +45,6 @@ export class Transactions extends React.Component { // eslint-disable-line react
 
   render() {
     const StyledContainer = styled(Container)`
-      background-color: #F0F3F4;
       overflow: auto;
     `;
     const StyledH3 = styled.h3`
@@ -69,7 +68,7 @@ export class Transactions extends React.Component { // eslint-disable-line react
             pass it around for us to see it.
           </p>
           <p className="h5">
-            If the transaction you are searching for is a HC only transaction you should use a bitcoin block
+            If the transaction you are searching for is a Bitcoin only transaction you should use a bitcoin block
             explorer like <a href="https://www.blocktrail.com">blocktrail.com</a>
           </p>
         </StyledH3>

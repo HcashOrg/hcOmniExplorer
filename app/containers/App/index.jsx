@@ -47,11 +47,12 @@ const isDev = process.env.NODE_ENV !== 'production';
 Moment.globalLocale = 'en-gb';
 
 const AppWrapper = styled.div`
-  max-width: calc(1170px + 16px * 2);
+  // max-width: calc(1366px + 16px * 2);
+  width: 100%;
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  // padding: 0 16px;
   flex-direction: column;
 `;
 
@@ -62,49 +63,51 @@ class App extends React.Component {
 
   render() {
     return (
-      <AppWrapper>
+      <div className="newWrapper">
         <Helmet titleTemplate="%s - Omni Explorer" defaultTitle="Omni Explorer">
           <meta name="description" content="Omni Explorer" />
         </Helmet>
         <Header />
-        <Switch>
-          <Route exact path="/:page(\d+)?" component={HomePage} />
-          <Route path="/tx/:tx" component={TransactionDetail} />
-          <Route
-            path="/address/:address/:page(\d+)?"
-            component={AddressDetail}
-            key={location.pathname}
-          />
-          <Route
-            path="/search/:query"
-            component={Search}
-            key={location.pathname}
-          />
-          <Route
-            path="/properties/:query"
-            component={Properties}
-            key={location.pathname}
-          />
-          <Route
-            path="/asset/:propertyid(\d+)"
-            component={AssetDetail}
-            key={location.pathname}
-          />
-          <Route exact path="/crowdsales/:ecosystem" component={Crowdsales} />
-          <Route
-            path="/crowdsale/:crowdsaleid(\d+)"
-            component={CrowdsaleDetail}
-            key={location.pathname}
-          />
-          <Route exact path="/promote" component={Promote} />
-          <Route exact path="/submitfeedback" component={Feedback} />
-          <Route exact path="/history" component={HistoryChart} />
-          <Route path="" component={NotFoundPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <AppWrapper>
+          <Switch>
+            <Route exact path="/:page(\d+)?" component={HomePage} />
+            <Route path="/tx/:tx" component={TransactionDetail} />
+            <Route
+              path="/address/:address/:page(\d+)?"
+              component={AddressDetail}
+              key={location.pathname}
+            />
+            <Route
+              path="/search/:query"
+              component={Search}
+              key={location.pathname}
+            />
+            <Route
+              path="/properties/:query"
+              component={Properties}
+              key={location.pathname}
+            />
+            <Route
+              path="/asset/:propertyid(\d+)"
+              component={AssetDetail}
+              key={location.pathname}
+            />
+            <Route exact path="/crowdsales/:ecosystem" component={Crowdsales} />
+            <Route
+              path="/crowdsale/:crowdsaleid(\d+)"
+              component={CrowdsaleDetail}
+              key={location.pathname}
+            />
+            <Route exact path="/promote" component={Promote} />
+            <Route exact path="/submitfeedback" component={Feedback} />
+            <Route exact path="/history" component={HistoryChart} />
+            <Route path="" component={NotFoundPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </AppWrapper>
         <Footer />
         {isDev ? <DevTools /> : <div />}
-      </AppWrapper>
+      </div>
     );
   }
 }

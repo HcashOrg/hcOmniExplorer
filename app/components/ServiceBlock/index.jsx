@@ -11,29 +11,27 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import styled from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
-import featureLogoPNG from 'images/token1.png';
+// import featureLogoPNG from 'images/token1.png';
+import logo2 from 'hope_assets/images/logo2.png';
 import { makeSelectStatus } from './selectors';
 
 const IMG = styled.img`
-  margin-right: 6px;
-  width: 60px;
-  height: 60px;
+  margin-right: 10px;
+  width: 44px;
+  height: 44px;
 `;
 
 const Container = styled.div`
-  background-color: #3498DB;
-  padding: 15px;
- 
+  padding: 30px 15px;
 `;
 
 const ContainerLogo = styled.div`
-  background-color: #3498db;
 `;
 
 const NameLogo = () => (
-  <ContainerLogo className="px-3 py-2">
+  <ContainerLogo className="px-3 py-2 d-flex">
     <div className="d-inline-block">
-      <IMG src={featureLogoPNG} alt="feature logo" className="card-img-top" />
+      <IMG src={logo2} alt="feature logo" className="card-img-top" />
     </div>
     <div className="d-inline-block bg-inverse text-white text-nowrap">
       <h5>Omni</h5>
@@ -46,8 +44,6 @@ const BlockInfo = (props) => (
   <div className="pt-3 pl-3">
     <div className="text-white">
       <span>LAST UPDATE</span>
-    </div>
-    <div className="text-white">
       <span>
         { `As of Block ${props.last_block}` }
       </span>
@@ -63,27 +59,26 @@ const BlockInfo = (props) => (
 );
 
 const StyledContainerSummary = styled.div`
-  padding: 6px;
+  padding: 6px 10px;
   margin: 0 6px;
-  font-size: 0.9rem
+  font-size: 0.9rem;
+  border-radius: 1000px;
+  background-color: rgba(255,255,255,0.1);
 `;
 
 const StyledContainerSummary1 = styled(StyledContainerSummary)`
-  background-color: #348FE2;
 `;
 const StyledContainerSummary2 = styled(StyledContainerSummary)`
-  background-color: #159E9C;
 `;
 const StyledContainerSummary3 = styled(StyledContainerSummary)`
-  background-color: #727CB6;
 `;
 
 const SummaryItem = (props) => {
   const StyledContainer = props.container;
 
   return (
-    <StyledContainer className="text-white">
-      <span className="d-block lead" style={{ fontSize: '0.9rem' }}>{props.options.title}</span>
+    <StyledContainer className="text-white d-flex justify-content-between align-items-center mt-3">
+      <span className="lead" style={{ fontSize: '0.9rem' }}>{props.options.title}</span>
       <span className="lead">{props.options.value}</span>
     </StyledContainer>
   );
@@ -107,18 +102,18 @@ class ServiceBlock extends React.PureComponent { // eslint-disable-line react/pr
 
     const omniPriceValue = (props) => (
       <span>
-        { Math.round((props.omni_btc + 0.0000001) * 1000000) / 1000000 } HC /
+        { Math.round((props.omni_btc + 0.0000001) * 1000000) / 1000000 } BTC /
         ${ (Math.round((props.omni_usd + 0.00001) * 100) / 100).toFixed(2) }
       </span>
     );
   
     return (
-      <Container className="d-md-flex">
-        <div className="d-inline-block">
+      <Container className="">
+        <div className="d-inline-block d-sm-flex mb-4">
           <NameLogo />
           <BlockInfo {...this.props.status} />
         </div>
-          <div className="d-md-inline-block d-sm-block w-100">
+        <div className="d-md-inline-block d-sm-block w-100">
           <SummaryItem
             container={StyledContainerSummary1}
             options={{ title: 'LATEST OMNI PRICE', value: omniPriceValue(this.props.status) }}

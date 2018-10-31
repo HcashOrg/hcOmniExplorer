@@ -29,9 +29,9 @@ import searchSaga from './saga';
 import { loadSearch } from './actions';
 
 const StyledContainer = styled(Container)`
-      
-      margin: 3rem;
-      padding: 1rem;
+      //
+      // margin: 3rem;
+      // padding: 1rem;
     `;
 const StyledTH = styled.th`
       border: none !important;
@@ -104,44 +104,58 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
 
     if (!wallet && !assets && !tx) {
       return (
-        <Container fluid>
-          <Row>
-            <Col sm>
-              <div>
-                <Jumbotron className="text-center">
-                  <h3 className="display-3">No results found :(</h3>
-                  <p className="lead">Try using a valid transaction id, address, property id or asset name.</p>
-                </Jumbotron>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+        <div className="new-container">
+          <div className="new-title">
+            <StyledContainer fluid className="pt-4 pb-4 p-md-5">
+              <h3>Search</h3>
+            </StyledContainer>
+          </div>
+          <Container fluid className="p-5">
+            <Row className="new-bg ">
+              <Col sm>
+                <div>
+                  <Jumbotron className="text-center">
+                    <h3 className="display-3">No results found :(</h3>
+                    <p className="lead">Try using a valid transaction id, address, property id or asset name.</p>
+                  </Jumbotron>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
       );
     }
 
     return (
-      <StyledContainer fluid>
-        <Row>
-          <Col sm>
-            <h3>Showing results for: <mark>{this.query}</mark></h3>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            { wallet }
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            { assets }
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            { tx }
-          </Col>
-        </Row>
-      </StyledContainer>
+      <div className="new-container">
+        <StyledContainer fluid className="new-title">
+          <h3>Search</h3>
+        </StyledContainer>
+        <StyledContainer fluid className="pt-5 pb-5">
+          <div className="new-bg p-4">
+            <Row>
+              <Col sm>
+                <h3>Showing results for: <mark>{this.query}</mark></h3>
+              </Col>
+            </Row>
+            <Row>
+              <Col sm>
+                { wallet }
+              </Col>
+            </Row>
+            <Row>
+              <Col sm>
+                { assets }
+              </Col>
+            </Row>
+            <Row>
+              <Col sm>
+                { tx }
+              </Col>
+            </Row>
+          </div>
+        </StyledContainer>
+      </div>
     );
   }
 }

@@ -30,12 +30,9 @@ class TransactionListHeader extends React.PureComponent { // eslint-disable-line
 
   render() {
     const StyledRow = styled(Row)`
-      background-color: black;
-      color: white;
     `;
     const HeaderTitle = styled.span`
-      	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 16px;
+        font-size: 26px;
         letter-spacing: 0.1rem;
         font-weight: 300;
     `;
@@ -53,7 +50,7 @@ class TransactionListHeader extends React.PureComponent { // eslint-disable-line
           </HeaderTitle>
         </Col>
         <Col sm>
-          <ButtonDropdown size="sm" isOpen={this.state.dropdownOpen} toggle={this.toggle} className="float-md-right">
+          <ButtonDropdown size="sm" isOpen={this.state.dropdownOpen} toggle={this.toggle} className="hope-btn float-md-right">
             <DropdownToggle caret color="info" className="font-weight-light">
               <FormattedMessage {...messages.transactionTypes} />
             </DropdownToggle>

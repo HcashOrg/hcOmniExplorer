@@ -20,7 +20,7 @@ export class HistoryChart extends React.PureComponent {
   
   render() {
     return (
-      <div>
+      <div className="historyChartBg">
         <Chart height={400} />
       </div>
     );

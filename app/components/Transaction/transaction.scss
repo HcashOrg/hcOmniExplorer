@@ -100,14 +100,14 @@
 
 @include media-breakpoint-up(sm) {
   .result-list .result-price {
-    border-left: 1px dashed #ddd;
+    border-left: 1px solid rgba(#5C4D93, 0.05);
   }
 }
 
 @include media-breakpoint-down(sm) {
   .result-list {
     .result-price {
-      border-top: 1px dashed #ddd;
+      border-top: 1px solid rgba(#5C4D93, 0.05);
     }
     .transation-result {
       .desc {

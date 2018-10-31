@@ -13,7 +13,8 @@ export function* getTransactions({ addr }) {
   const state = yield select(makeSelectTransactions());
   const page = state.currentPage;
   const { txType } = state;
-
+  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  console.log(addr)
   const requestURL = addr
     ? `${API_URL_BASE}/transaction/address/${page}`
     : `${API_URL_BASE}/transaction/general/${page}`;

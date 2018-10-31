@@ -27,33 +27,31 @@ import injectSaga from 'utils/injectSaga';
 import sagaTransactions from 'containers/Transactions/saga';
 
 const Layout = styled.div`
-  background-color: #F5F5F5;
-  padding: 0;
 `;
 
 class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Layout className="container-fluid">
-        <Row noGutters>
-          <Col sm>
-            <HeaderMessage />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm="12" lg="5" className="text-center-down-md">
-            <ServiceBlock />
-          </Col>
-          <Col sm="12" lg="7" className="">
-            <TransactionHistory />
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            <Transactions />
-          </Col>
-        </Row>
-      </Layout>
+      <div>
+        <Layout className="container-fluid">
+          <Row noGutters>
+            <Col sm className="mt-3">
+              <HeaderMessage />
+            </Col>
+          </Row>
+          <div className="quick-info mb-5">
+            <Row>
+              <Col sm="12" lg="5" className="text-center-down-md">
+                <ServiceBlock />
+              </Col>
+              <Col sm="12" lg="7" className="">
+                <TransactionHistory />
+              </Col>
+            </Row>
+          </div>
+        </Layout>
+        <Transactions />
+      </div>
     );
   }
 }
