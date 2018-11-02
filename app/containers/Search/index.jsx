@@ -106,9 +106,9 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
       return (
         <div className="new-container">
           <div className="new-title">
-            <StyledContainer fluid className="pt-4 pb-4 p-md-5">
+            <div className="container-fluid">
               <h3>Search</h3>
-            </StyledContainer>
+            </div>
           </div>
           <Container fluid className="p-5">
             <Row className="new-bg ">
@@ -128,8 +128,10 @@ export class Search extends React.Component { // eslint-disable-line react/prefe
 
     return (
       <div className="new-container">
-        <StyledContainer fluid className="new-title">
-          <h3>Search</h3>
+        <StyledContainer className="new-title">
+          <div className="container-fluid">
+            <h3>Search</h3>
+          </div>
         </StyledContainer>
         <StyledContainer fluid className="pt-5 pb-5">
           <div className="new-bg p-4">

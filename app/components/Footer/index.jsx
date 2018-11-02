@@ -9,7 +9,8 @@ const Wrapper = styled.footer`
   justify-content: space-between;
   padding: 2rem 1rem;
   margin-top: 1rem;
-  background-color: #fff;
+  background-color: #8839D1;
+  color: #fff;
 `;
 
 const A = styled.a`
@@ -23,17 +24,19 @@ const A = styled.a`
 function Footer() {
   return (
     <Wrapper>
-      <section>
-        <FormattedMessage {...messages.licenseMessage} />
-      </section>
-      <section>
-        <FormattedMessage
-          {...messages.authorMessage}
-          values={{
-            author: <A href="https://h.cash//">The HCash Foundation</A>,
-          }}
-        />
-      </section>
+      <div className="container-fluid">
+        <section>
+          <FormattedMessage {...messages.licenseMessage} />
+        </section>
+        <section>
+          <FormattedMessage
+            {...messages.authorMessage}
+            values={{
+              author: <A href="https://h.cash/">The HCash Foundation</A>,
+            }}
+          />
+        </section>
+      </div>
     </Wrapper>
   );
 }

@@ -78,12 +78,14 @@ export class Properties extends React.PureComponent { // eslint-disable-line rea
 
     return (
       <div className="new-container">
-        <StyledContainer fluid className="new-title">
-          <h3>
-            Properties for ecosystem { this.ecosystem }
-            &nbsp;
-            <small className="text-muted">({this.props.search.asset.length} properties)</small>
-          </h3>
+        <StyledContainer className="new-title">
+          <div className="container-fluid">
+            <h3>
+              Properties for ecosystem { this.ecosystem }
+              &nbsp;
+              <small className="text-muted">({this.props.search.asset.length} properties)</small>
+            </h3>
+          </div>
         </StyledContainer>
         <StyledContainer fluid className="pt-5 pb-5">
           <div className="new-bg p-4">

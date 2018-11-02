@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'BwModelicaMedium';
-    src: url('fonts/BwModelicaMedium.eot');
-    src: url('fonts/BwModelicaMedium.eot') format('embedded-opentype'),
-         url('fonts/BwModelicaMedium.woff2') format('woff2'),
-         url('fonts/BwModelicaMedium.woff') format('woff'),
-         url('fonts/BwModelicaMedium.ttf') format('truetype'),
-         url('fonts/BwModelicaMedium.svg#BwModelicaMedium') format('svg');
-}

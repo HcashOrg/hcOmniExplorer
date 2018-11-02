@@ -47,8 +47,10 @@ export class AddressDetail extends React.PureComponent { // eslint-disable-line 
 
     return (
       <div className="new-container">
-        <Layout fluid className="new-title">
-          <h3>Transaction Address</h3>
+        <Layout className="new-title">
+          <div className="container-fluid">
+            <h3>Transaction Address</h3>
+          </div>
         </Layout>
         <Wallet {...this.props.addressdetail} addr={this.address} />
         <Transactions addr={this.address} />

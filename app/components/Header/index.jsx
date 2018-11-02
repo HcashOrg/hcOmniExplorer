@@ -34,6 +34,10 @@ const IMG = styled.img`
   // padding-bottom: 3px;
   // padding-right: 9px;
 `;
+const Div = styled.div`
+
+  width: 100%;
+`;
 
 const StyledNavItem = styled(NavItem)`
   font-size: 16px;
@@ -71,31 +75,134 @@ class Header extends React.PureComponent {
     return (
       <div>
         <Navbar color="faded" light expand="lg" className="d-block">
-          <div className="d-flex justify-content-between">
-            <NavbarBrand href="/">
-              <div className="long"><IMG src="/logo-long.svg" alt="OMNIEXPLORER.INFO" /></div>
-              <div className="short"><IMG src="/logo.svg" alt="OMNIEXPLORER.INFO" /></div>
-            </NavbarBrand>
-            <div className="ml-auto d-flex">
-              <div className="d-none d-lg-block">
-                <StyledCollapse navbar>
-                  <Nav navbar className="ml-auto">
-                    <StyledNavItem>
-                      <NavLink href="/">Home</NavLink>
-                    </StyledNavItem>
-                    <StyledNavItem>
-                      <NavLink href="http://hcomni-wallet.h.cash/">Omni Wallet</NavLink>
-                    </StyledNavItem>
-                    <StyledNavItem>
-                      <NavLink href="https://github.com/HcashOrg/hcOmniExplorer">Github</NavLink>
-                    </StyledNavItem>
-                    {/*<StyledNavItem>
+          <div className="container-fluid">
+            <Div>
+              <div className="d-flex justify-content-between">
+                <NavbarBrand href="/">
+                  <div className="long"><IMG src="/logo-long.svg" alt="OMNIEXPLORER.INFO" /></div>
+                  <div className="short"><IMG src="/logo.svg" alt="OMNIEXPLORER.INFO" /></div>
+                </NavbarBrand>
+                <div className="ml-auto d-flex">
+                  <div className="d-none d-lg-block">
+                    <StyledCollapse navbar>
+                      <Nav navbar className="ml-auto">
+                        <StyledNavItem>
+                          <NavLink href="/">Home</NavLink>
+                        </StyledNavItem>
+                        <StyledNavItem>
+                          <NavLink href="http://hcomni-wallet.h.cash/">Omni Wallet</NavLink>
+                        </StyledNavItem>
+                        <StyledNavItem>
+                          <NavLink href="https://github.com/HcashOrg/hcOmniExplorer">Github</NavLink>
+                        </StyledNavItem>
+                        {/*<StyledNavItem>
+                        <NavLink href="#" id="cs1">Exchange</NavLink>
+                        <UncontrolledTooltip placement="top" target="cs1">
+                          Coming Soon.
+                        </UncontrolledTooltip>
+                      </StyledNavItem>*/}
+                        {/*<UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                          API
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                          <DropdownItem>
+                            <NavLink href="https://api.omniexplorer.info">Documentation</NavLink>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>*/}
+                        <UncontrolledDropdown nav inNavbar>
+                          <DropdownToggle nav caret>
+                            Property List
+                          </DropdownToggle>
+                          <DropdownMenu right>
+                            <div className="dropdown-item">
+                              <NavLink href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`} >Production</NavLink>
+                            </div>
+                            <div className="dropdown-item">
+                              <NavLink href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`} >Test</NavLink>
+                            </div>
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                        {/*<UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                          Crowdsales
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                          <DropdownItem>
+                            <NavLink href={`/crowdsales/${ECOSYSTEM_PROD_NAME.toLowerCase()}`}>Production</NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <NavLink href={`/crowdsales/${ECOSYSTEM_TEST_NAME.toLowerCase()}`}>Test</NavLink>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>*/}
+                        {/*<StyledNavItem>
+                        <NavLink href="#" id="cs2">Usage Graphs</NavLink>
+                        <UncontrolledTooltip placement="top" target="cs2">
+                          Coming Soon.
+                        </UncontrolledTooltip>
+                      </StyledNavItem>*/}
+                        {/*<UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                          Misc
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                          <DropdownItem header>
+                            <NavLink href="/">Feature Activations (Coming Soon)</NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <NavLink href="http://www.omnilayer.org/#GetStarted" target="_blank">Wallets</NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <NavLink href="https://github.com/OmniLayer/omniexplorer/wiki/OmniExplorer-FAQ" target="_blank">Help/FAQ</NavLink>
+                          </DropdownItem>
+                          <DropdownItem>
+                            <NavLink href="https://github.com/OmniLayer/omniexplorer/issues" target="_blank">Report Bug</NavLink>
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>*/}
+                      </Nav>
+                    </StyledCollapse>
+                  </div>
+                  <div className="d-flex showSearch" onClick={this.toggleSearch}>
+                    {
+                      this.state.isSearch
+                        ?<SearchCloseIcon className="searchclose-icon" size={24} />
+                        :<SearchIcon className="searchbox-icon" size={24} />
+                    }
+                  </div>
+                  <NavbarToggler onClick={this.toggle} />
+                </div>
+              </div>
+              {
+                this.state.isSearch
+                  ?
+                  <div className="w-100 ml-auto">
+                    <SearchBox />
+                  </div>
+                  : ''
+              }
+              <div className="d-lg-none">
+                <div className="d-flex d-block-down">
+                  <StyledCollapse isOpen={this.state.isOpen} navbar>
+                    <Nav navbar className="ml-auto">
+                      <StyledNavItem>
+                        <NavLink href="/">Home</NavLink>
+                      </StyledNavItem>
+                      <StyledNavItem>
+                        <NavLink href="http://hcomni-wallet.h.cash/">Omni Wallet</NavLink>
+                      </StyledNavItem>
+                      <StyledNavItem>
+                        <NavLink href="https://github.com/HcashOrg/hcOmniExplorer">Github</NavLink>
+                      </StyledNavItem>
+                      {/*<StyledNavItem>
                       <NavLink href="#" id="cs1">Exchange</NavLink>
                       <UncontrolledTooltip placement="top" target="cs1">
                         Coming Soon.
                       </UncontrolledTooltip>
                     </StyledNavItem>*/}
-                    {/*<UncontrolledDropdown nav inNavbar>
+                      {/*<UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav caret>
                         API
                       </DropdownToggle>
@@ -105,20 +212,20 @@ class Header extends React.PureComponent {
                         </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>*/}
-                    <UncontrolledDropdown nav inNavbar>
-                      <DropdownToggle nav caret>
-                        Property List
-                      </DropdownToggle>
-                      <DropdownMenu right>
-                        <DropdownItem>
-                          <NavLink href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`} >Production</NavLink>
-                        </DropdownItem>
-                        <DropdownItem>
-                          <NavLink href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`} >Test</NavLink>
-                        </DropdownItem>
-                      </DropdownMenu>
-                    </UncontrolledDropdown>
-                    {/*<UncontrolledDropdown nav inNavbar>
+                      <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret>
+                          Property ListMisc
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                          <div className="dropdown-item">
+                            <NavLink href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`} >Production</NavLink>
+                          </div>
+                          <div className="dropdown-item">
+                            <NavLink href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`} >Test</NavLink>
+                          </div>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                      {/*<UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav caret>
                         Crowdsales
                       </DropdownToggle>
@@ -131,13 +238,13 @@ class Header extends React.PureComponent {
                         </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>*/}
-                    {/*<StyledNavItem>
+                      {/*<StyledNavItem>
                       <NavLink href="#" id="cs2">Usage Graphs</NavLink>
                       <UncontrolledTooltip placement="top" target="cs2">
                         Coming Soon.
                       </UncontrolledTooltip>
                     </StyledNavItem>*/}
-                    {/*<UncontrolledDropdown nav inNavbar>
+                      {/*<UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav caret>
                         Misc
                       </DropdownToggle>
@@ -156,110 +263,11 @@ class Header extends React.PureComponent {
                         </DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>*/}
-                  </Nav>
-                </StyledCollapse>
-              </div>
-              <div className="d-flex showSearch" onClick={this.toggleSearch}>
-                {
-                  this.state.isSearch
-                  ?<SearchCloseIcon className="searchclose-icon" size={24} />
-                  :<SearchIcon className="searchbox-icon" size={24} />
-                }
-              </div>
-              <NavbarToggler onClick={this.toggle} />
+                    </Nav>
+                  </StyledCollapse>
+                </div>
             </div>
-          </div>
-          {
-            this.state.isSearch
-              ?
-              <div className="w-100 ml-auto">
-                <SearchBox />
-              </div>
-              : ''
-          }
-          <div className="d-lg-none">
-            <div className="d-flex d-block-down">
-              <StyledCollapse isOpen={this.state.isOpen} navbar>
-                <Nav navbar className="ml-auto">
-                  <StyledNavItem>
-                    <NavLink href="/">Home</NavLink>
-                  </StyledNavItem>
-                  <StyledNavItem>
-                    <NavLink href="http://hcomni-wallet.h.cash/">Omni Wallet</NavLink>
-                  </StyledNavItem>
-                  <StyledNavItem>
-                    <NavLink href="https://github.com/HcashOrg/hcOmniExplorer">Github</NavLink>
-                  </StyledNavItem>
-                  {/*<StyledNavItem>
-                    <NavLink href="#" id="cs1">Exchange</NavLink>
-                    <UncontrolledTooltip placement="top" target="cs1">
-                      Coming Soon.
-                    </UncontrolledTooltip>
-                  </StyledNavItem>*/}
-                  {/*<UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      API
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>
-                        <NavLink href="https://api.omniexplorer.info">Documentation</NavLink>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>*/}
-                  <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      Property ListMisc
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>
-                        <NavLink href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`} >Production</NavLink>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <NavLink href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`} >Test</NavLink>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                  {/*<UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      Crowdsales
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>
-                        <NavLink href={`/crowdsales/${ECOSYSTEM_PROD_NAME.toLowerCase()}`}>Production</NavLink>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <NavLink href={`/crowdsales/${ECOSYSTEM_TEST_NAME.toLowerCase()}`}>Test</NavLink>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>*/}
-                  {/*<StyledNavItem>
-                    <NavLink href="#" id="cs2">Usage Graphs</NavLink>
-                    <UncontrolledTooltip placement="top" target="cs2">
-                      Coming Soon.
-                    </UncontrolledTooltip>
-                  </StyledNavItem>*/}
-                  {/*<UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      Misc
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem header>
-                        <NavLink href="/">Feature Activations (Coming Soon)</NavLink>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <NavLink href="http://www.omnilayer.org/#GetStarted" target="_blank">Wallets</NavLink>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <NavLink href="https://github.com/OmniLayer/omniexplorer/wiki/OmniExplorer-FAQ" target="_blank">Help/FAQ</NavLink>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <NavLink href="https://github.com/OmniLayer/omniexplorer/issues" target="_blank">Report Bug</NavLink>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>*/}
-                </Nav>
-              </StyledCollapse>
-            </div>
+            </Div>
           </div>
         </Navbar>
       </div>

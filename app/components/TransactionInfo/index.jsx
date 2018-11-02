@@ -133,7 +133,7 @@ function TransactionInfo(props) {
       <td>
         <strong>
           <span id="lamount">
-            <SanitizedFormattedNumber value={props.bitcoindesired}/> HC
+            <SanitizedFormattedNumber value={props.bitcoindesired}/> BTC
           </span>
         </strong>
       </td>
@@ -144,8 +144,10 @@ function TransactionInfo(props) {
 
   return (
     <div className="new-container">
-      <StyledContainer fluid className="new-title">
-        <h3>Transaction Details </h3>
+      <StyledContainer className="new-title">
+        <div className="container-fluid">
+          <h3>Transaction Details </h3>
+        </div>
       </StyledContainer>
       <StyledContainer fluid className="pt-5 pb-5">
         {warningMessage}

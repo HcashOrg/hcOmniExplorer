@@ -65,8 +65,10 @@ export class AssetDetail extends React.PureComponent {
 
     return (
       <div className="new-container">
-        <StyledContainer fluid className="new-title">
-          <h3>Asset Detail</h3>
+        <StyledContainer className="new-title">
+          <div className="container-fluid">
+            <h3>Asset Detail</h3>
+          </div>
         </StyledContainer>
         <StyledContainer fluid className="pt-5 pb-5">
           {warningMessage}

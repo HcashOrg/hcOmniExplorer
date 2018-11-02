@@ -26,7 +26,7 @@ body.fontLoaded {
 }
 
 #app {
-	background-color: #F5F6F9;
+	background-color: #F3EEF6;
 }
 
 .alert-info {
@@ -100,6 +100,8 @@ body.fontLoaded {
 .navbar {
 	background-color: #8839D1;
 	color: #fff;
+	padding-left: 0;
+	padding-right: 0;
 }
 .navbar-brand {
 	.long {
@@ -113,6 +115,12 @@ body.fontLoaded {
 	}
 }
 @media screen and (max-width: 1024px){
+	.navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+@media screen and (max-width: 1024px){
 	.navbar-brand {
 		.long {
 			display: none;
@@ -121,6 +129,11 @@ body.fontLoaded {
 			display: block;
 		}
 	}
+}
+.navbar-light .navbar-toggler {
+	color: #fff;
+	border-color: #fff;
+	background-color: #fff;
 }
 
 
@@ -315,6 +328,10 @@ body.fontLoaded {
 			outline: none;
 		}
 	}
+	.btn-outline-info:hover {
+		border-color: #8839D1;
+		background-color: #8839D1;
+	}
 }
 
 
@@ -325,7 +342,7 @@ body.fontLoaded {
 	background-image: linear-gradient(-40deg, #8839D1, #6f2faf);
 	color: #fff;
 	overflow: hidden;
-	padding: 4rem 2rem !important;
+	padding: 4rem 0 !important;
 	h3 {
 		position: relative;
 		&:before {

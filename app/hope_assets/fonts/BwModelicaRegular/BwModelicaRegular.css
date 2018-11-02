@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'BwModelicaRegular';
-    src: url('fonts/BwModelicaRegular.eot');
-    src: url('fonts/BwModelicaRegular.eot') format('embedded-opentype'),
-         url('fonts/BwModelicaRegular.woff2') format('woff2'),
-         url('fonts/BwModelicaRegular.woff') format('woff'),
-         url('fonts/BwModelicaRegular.ttf') format('truetype'),
-         url('fonts/BwModelicaRegular.svg#BwModelicaRegular') format('svg');
-}
