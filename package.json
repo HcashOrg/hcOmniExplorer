@@ -1,10 +1,10 @@
 {
   "name": "omniexplorer",
   "version": "3.5.0",
-  "description": "Omni Explorer is a Block Explorer and Analytics Platform for Omni",
+  "description": "HcOmni Explorer is a Block Explorer and Analytics Platform for Omni",
   "repository": {
     "type": "git",
-    "url": "https://github.com/omniLayer/omniexplorer.git"
+    "url": "https://github.com/HcashOrg/hcOmniExplorer.git"
   },
   "engines": {
     "npm": ">=3",

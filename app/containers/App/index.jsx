@@ -64,8 +64,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="newWrapper">
-        <Helmet titleTemplate="%s - Omni Explorer" defaultTitle="Omni Explorer">
-          <meta name="description" content="Omni Explorer" />
+        <Helmet titleTemplate="%s - HcOmni Explorer" defaultTitle="HcOmni Explorer">
+          <meta name="description" content="HcOmni Explorer" />
         </Helmet>
         <Header />
         <AppWrapper>
